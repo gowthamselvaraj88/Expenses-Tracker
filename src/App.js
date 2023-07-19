@@ -37,13 +37,7 @@ const formatDate = (date) => {
 
 const Budget = () => {
 
-  const initialTransaction = [
-    {
-      Acion: "",
-      dateTime: "",
-      Balance: (0)
-    }
-  ];
+
   const date = new Date(); // Assuming you want to format the current date and time
   const formattedDate = formatDate(date);
   // const [values, setValues] = useState(0);
@@ -59,30 +53,24 @@ const Budget = () => {
     setInputValue(parseInt(event.target.value));
   }
 
-
-
   const handleAdd = (event) => {
 
     setBalance((prevBalance) => prevBalance + parseInt(event));
-
-
   }
-
 
   const handleRemove = (event) => {
     setBalance((prevBalance) => prevBalance - parseInt(event));
-
   }
 
 
   const handleAction = (actionType) => {
     let value = inputValue.toString();
     console.log("value::", value)
-    const regex = /^[0-9\b]+$/;
+   
     if (value.trim() !== '' && /^\d+$/.test(value)) {
       let date = formattedDate;
       console.log("date = ", date)
-      console.log("date = ", regex);
+
       console.log("action type :: ", actionType, "value ::", value);
 
       setTransaction((prevtransaction) => [
